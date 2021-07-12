@@ -1,63 +1,88 @@
 import Head from 'next/head'
+import {useState} from 'react'
+import darkTheme from './../assets/dark-colors'
+import lightTheme from './../assets/light-colors'
+import Image from 'next/image'
 
 export default function Home() {
+
+  // Dark/Light Mode logic
+  const [colors, setColors] = useState(darkTheme)
+  const [isDarkEnabled, setIsDarkEnabled] = useState(true)
+
+  function toggleLights () {
+    if (isDarkEnabled) {
+      setColors(lightTheme)
+      setIsDarkEnabled(false)
+    } else {
+      setColors(darkTheme)
+      setIsDarkEnabled(true)
+    }
+  }
+
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Ivã Munhoz's Porfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+   
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Hi, I'm a Web Developer
         </h1>
-
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          60% back-end, 40% front-end
         </p>
 
+       
         <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+          <a href="https://noam.netlify.app/" className="card">
+            <h3>Noam &rarr;</h3>
+            <p>An educational tool to generate Simplified Syntax Trees.</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <a href="https://agora-social.herokuapp.com/" className="card">
+            <h3>Agora Social Media &rarr;</h3>
+            <p>A social media web app for tight-knit communities</p>
           </a>
 
           <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
+            href="#"
             className="card"
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+            <h3>EnglishToCode() &rarr;</h3>
+            <p>Natural Language topics through the lenses of coding</p>
           </a>
 
           <a
             href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className="card"
           >
-            <h3>Deploy &rarr;</h3>
+            <h3>Little Apps &rarr;</h3>
             <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
+              Snake, <br/> Drummer Hero
             </p>
           </a>
         </div>
       </main>
 
       <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button 
+          onClick={toggleLights}
+          className='toggleLights'
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
-        </a>
+        <Image
+          src="/lightdarktoggle.png"
+          alt="button to switch between Light and Dark Mode"
+          width={20}
+          height={20}
+        />
+          </button>
+       
       </footer>
+
+      
 
       <style jsx>{`
         .container {
@@ -67,6 +92,8 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background-color: ${colors.background};
+          color: ${colors.text};
         }
 
         main {
@@ -155,9 +182,10 @@ export default function Home() {
           text-align: left;
           color: inherit;
           text-decoration: none;
-          border: 1px solid #eaeaea;
+          border: 1px solid ${colors.contour};
           border-radius: 10px;
           transition: color 0.15s ease, border-color 0.15s ease;
+          background-color: ${colors.surface}
         }
 
         .card:hover,
@@ -180,6 +208,11 @@ export default function Home() {
 
         .logo {
           height: 1em;
+        }
+
+        .toggleLights {
+          background-color: rgba(0,0,0,0);
+          border: 0px;
         }
 
         @media (max-width: 600px) {
