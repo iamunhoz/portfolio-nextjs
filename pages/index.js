@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import {useState} from 'react'
-import darkTheme from './../assets/dark-colors'
-import lightTheme from './../assets/light-colors'
+import darkTheme from './../components/dark-colors'
+import lightTheme from './../components/light-colors'
 import Image from 'next/image'
+import Layout from './../components/layout'
 
 export default function Home() {
 
@@ -21,6 +22,7 @@ export default function Home() {
   }
 
   return (
+    <Layout>
     <div className="container">
       <Head>
         <title>Ivã Munhoz's Porfolio</title>
@@ -82,11 +84,10 @@ export default function Home() {
        
       </footer>
 
-      
-
       <style jsx>{`
         .container {
           min-height: 100vh;
+          width: 100%;
           padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
@@ -238,5 +239,6 @@ export default function Home() {
         }
       `}</style>
     </div>
+    </Layout>
   )
 }
