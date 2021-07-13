@@ -1,4 +1,4 @@
-import Layout from './../components/layout'
+import Layout from '../components/layout'
 
 export default function Home() {
   return (
@@ -8,11 +8,42 @@ export default function Home() {
    
       <main>
         <h1 className="title">
-          Hi, I'm a Web Developer
+          Check out some of my projects
         </h1>
         <p className="description">
-          60% back-end, 40% front-end
+          Applications, Landing Pages and Games
         </p>
+
+       
+        <div className="grid">
+          <a href="https://noam.netlify.app/" className="card">
+            <h3>Noam &rarr;</h3>
+            <p>An educational tool to generate Simplified Syntax Trees.</p>
+          </a>
+
+          <a href="https://agora-social.herokuapp.com/" className="card">
+            <h3>Agora Social Media &rarr;</h3>
+            <p>A social media web app for tight-knit communities</p>
+          </a>
+
+          <a
+            href="#"
+            className="card"
+          >
+            <h3>EnglishToCode() &rarr;</h3>
+            <p>Natural Language topics through the lenses of coding</p>
+          </a>
+
+          <a
+            href="#"
+            className="card"
+          >
+            <h3>Little Apps &rarr;</h3>
+            <p>
+              Snake, <br/> Drummer Hero
+            </p>
+          </a>
+        </div>
       </main>
 
       <style jsx>{`

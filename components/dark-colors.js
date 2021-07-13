@@ -1,11 +1,8 @@
 const colors = {
-  text: "#eee",
-  background: "#333",
-  surface: "#444",
-  elevated: "#555",
-  contour: "#55f",
-  desire: "#88f",
-  attention: "#a88"
+  text: "#a9a296",
+  emphasis: "#c2beb5",
+  background: "#1e2122",
+  surface: "#181a1b"
 }
 
 export default colors
