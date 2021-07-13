@@ -1,11 +1,8 @@
-import Layout from './../components/layout'
+import Layout, {colors} from './../components/layout'
 
 export default function Home() {
   return (
-    <Layout>
-    <div className="container">
-
-   
+    <Layout className="container">
       <main>
         <h1 className="title">
           Hi, I'm a Web Developer
@@ -154,9 +151,6 @@ export default function Home() {
           }
         }
       `}</style>
-
-
-    </div>
     </Layout>
   )
 }

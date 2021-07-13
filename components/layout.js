@@ -10,6 +10,7 @@ export default function Layout({children}) {
   // Dark/Light Mode logic
   const [colors, setColors] = useState(darkTheme)
   const [isDarkEnabled, setIsDarkEnabled] = useState(true)
+  
 
   function toggleLights () {
     if (isDarkEnabled) {
@@ -27,10 +28,10 @@ export default function Layout({children}) {
       <title>Ivã Munhoz's Porfolio</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <TopBar theme={colors} setTheme={toggleLights}/>
-    <div style={{display: 'flex'}}>
-      <SideBar/>
-      {children}
+    <TopBar theme={colors} setTheme={toggleLights} isDark={isDarkEnabled}/>
+    <div className='contentBox'>
+      <SideBar theme={colors}/>
+      <div className='actualContent'>{children}</div>
     </div>
     <style jsx global>
       {`
@@ -45,6 +46,17 @@ export default function Layout({children}) {
 
         * {
           box-sizing: border-box;
+        }
+
+        .contentBox {
+          display: grid;
+          grid-template-columns: 1fr 4fr;
+          background-color: ${colors.background};
+        }
+
+        .actualContent {
+          margin: 2rem 2rem;
+          background-color: ${colors.surface};
         }
       `}
     </style>

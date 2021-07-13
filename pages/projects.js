@@ -1,11 +1,8 @@
 import Layout from '../components/layout'
 
-export default function Home() {
+export default function Projects() {
   return (
-    <Layout>
-    <div className="container">
-
-   
+    <Layout className="container">
       <main>
         <h1 className="title">
           Check out some of my projects
@@ -49,7 +46,7 @@ export default function Home() {
       <style jsx>{`
         .container {
           min-height: 100vh;
-          width: 100%;
+          
           padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
@@ -185,9 +182,6 @@ export default function Home() {
           }
         }
       `}</style>
-
-
-    </div>
     </Layout>
   )
 }

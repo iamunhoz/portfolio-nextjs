@@ -36,6 +36,7 @@ export default function TopBar(props) {
           width={20}
           height={20}
         />
+        {props.isDark ? 'Lights are off' : 'Lights are on'}
       </button>
 
       <style jsx>{`
